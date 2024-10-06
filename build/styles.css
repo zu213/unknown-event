@@ -43,3 +43,13 @@ a:hover{
 a:visited {
     color: rgb(15, 95, 126);
 }
+
+@media only screen and (max-width: 600px) {
+    .top-text {
+      font-size: 5vw;
+    }
+
+    body {
+        font-size: 3vw;
+    }
+}
