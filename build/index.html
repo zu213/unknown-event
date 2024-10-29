@@ -13,9 +13,20 @@
     
     <title>UNKNOWN EVENT</title>
 </head>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "hr0si7yaJ8e8_bh11",
+      });
+   })();
+</script>
+
  
 <body>
-    <script src="./script.js"></script>
     <div>
         <div class="centered">
             <div class="top-text">
@@ -24,14 +35,54 @@
             <br />
             <br />
 
-            Email for more details
+            Fill out the form below and send for more details.
             <br />
-
-            <a href="mailto:haydn@angelpunzel.com"  target="_blank" rel="noreferrer">
-                haydn@angelpunzel.com
-            </a>
+            <br />
+            <div>
+                <form onSubmit="handleSubmit(event);">
+                  <div class='inline'>
+                    <label for="name">Name:</label><br />
+                    <input type="text" id="name" name="name" placeholder="" />
+                  </div>
+                  <div class='inline'>
+                    <label for="email">Email:</label><br />
+                    <input type="text" id="email" name="email" placeholder="" />
+                  </div>
+                  <div class='inline'>
+                    <label for="phone">Phone:</label><br />
+                    <input type="text" id="phone" name="phone" placeholder="" />
+                  </div>
+                  <br />
+                  <div>
+                    <label for="message">Message:</label><br />
+                    <textarea name="message" id="message" cols="120" rows="5"></textarea>
+                  </div>
+                  <br />
+                  <input type="submit" value="Submit" />
+                </form> 
+              </div>
         </div>
     </div>
+
+    <script>
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const params = {
+                name : e.target[0].value,
+                email : e.target[1].value,
+                phone : e.target[2].value,
+                message : e.target[3].value,
+            }
+            console.log(e.target[0].value)
+            emailjs.send('service_couf6bs', 'template_z6yyec8', params, 'hr0si7yaJ8e8_bh11')
+            .then((result) => {
+            // nothing
+            }, (error) => {
+                console.log(error.text);
+            });
+        }
+    </script>
 </body>
  
 </html>
