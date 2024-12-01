@@ -1,3 +1,3 @@
-# Unknown-Event
+# ❔ Unknown Event
 
-Basic domain selling webpage, with script placeholder.
+Basic domain selling webpage.
