@@ -25,6 +25,10 @@
     padding: 1rem;
 }
 
+textarea {
+    max-width: 90%;
+}
+
 body {
     background-color: #3b3e42;
     text-align: center;
