@@ -74,11 +74,16 @@
                 phone : e.target[2].value,
                 message : e.target[3].value,
             }
-            console.log(e.target[0].value)
+
+            e.target[0].value = ""
+            e.target[1].value = ""
+            e.target[2].value = ""
+            e.target[3].value = ""
+
             emailjs.send('service_couf6bs', 'template_z6yyec8', params, 'hr0si7yaJ8e8_bh11')
             .then((result) => {
             // nothing
-            }, (error) => {
+            }).catch((error) => {
                 console.log(error.text);
             });
         }
